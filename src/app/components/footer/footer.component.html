@@ -1,0 +1,12 @@
+<footer class="footer fix-block">
+	<div class="footer__container">
+		<nav class="footer__nav">
+			<ul class="footer__list">
+				<li class="footer__item" *ngFor="let menuItem of menuItems">
+					<a [routerLink]="[menuItem.path]" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact:
+						true}" class="footer__link {{menuItem.icon}}"></a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+</footer>

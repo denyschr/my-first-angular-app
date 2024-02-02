@@ -1,0 +1,32 @@
+@import "mixins";
+.category {
+	// .category__search
+	&__search {
+		margin-bottom: toRem(20);
+	}
+}
+
+.search {
+	// .search__input
+	&__input {
+		width: 100%;
+		padding: toRem(14) toRem(44) toRem(14) toRem(14);
+		border-radius: toRem(10);
+		border: toRem(1) solid var(--gray);
+		color: var(--gray);
+		background: url("../../../assets/icons/search.svg") right toRem(16) top 50% no-repeat;
+		cursor: pointer;
+		transition: background 0.3s ease-in-out;
+		&::placeholder {
+			color: currentColor;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: #f0efef;
+			}
+		}
+		&:focus {
+			cursor: text;
+		}
+	}
+}

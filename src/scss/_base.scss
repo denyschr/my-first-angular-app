@@ -1,0 +1,43 @@
+body {
+	min-width: toRem($minWidth);
+	color: var(--primary);
+	background-color: var(--mine-shaft);
+	font-family: $fontMain, sans-serif;
+	font-size: $fontSize;
+}
+
+.wrapper {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	min-height: 100%;
+	overflow: clip;
+}
+
+.inner {
+	max-width: toRem(360);
+	width: 100%;
+	flex-grow: 1;
+	background-color: var(--white);
+}
+
+.header {
+	position: fixed;
+	z-index: 10;
+	left: 50%;
+	transform: translateX(-50%);
+	top: 0;
+	width: 100%;
+	max-width: toRem(360);
+}
+
+.page {
+	margin-top: toRem(74);
+	margin-bottom: toRem(74);
+}
+
+[class*="_container"] {
+	max-width: toRem($containerWidth);
+	margin: 0 auto;
+	padding: 0 toRem($containerOffset);
+}

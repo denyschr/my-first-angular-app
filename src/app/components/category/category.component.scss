@@ -1,0 +1,10 @@
+@import "mixins";
+
+.category {
+	// .category__list
+	&__products {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: toRem(20);
+	}
+}

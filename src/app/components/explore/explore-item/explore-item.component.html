@@ -1,0 +1,11 @@
+<li class="card">
+	<div class="card__content">
+		<div class="card__img">
+			<img src="./assets/images/restaurants/{{ restaurant.img }}" [alt]="restaurant.title">
+		</div>
+		<h2 class="card__title fz-12">{{ restaurant.title }}</h2>
+		<div class="card__distance fz-12">{{ restaurant.distance }}km</div>
+		<div class="card__time fz-12">{{ restaurant.time }}min</div>
+		<button type="button" class="card__button button button--fill">Map</button>
+	</div>
+</li>

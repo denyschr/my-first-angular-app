@@ -1,0 +1,60 @@
+<bq-header>
+	<a [routerLink]="['/explore']" class="header__link header__link--back" aria-label="Move to explore"></a>
+	<h1 class="header__title fz-14">Cart</h1>
+	<a [routerLink]="['']" class="header__link header__link--forward" aria-label="Back to home"></a>
+</bq-header>
+<main class="page">
+	<section class="page__cart cart">
+		<div class="cart__container">
+			<ng-container *ngIf="cart.length; else emptyCart">
+				<ul class="cart__list">
+					<li class="cart__item item-cart" *ngFor="let product of cart">
+						<div class="item-cart__left">
+							<a href="#" class="item-cart__img">
+								<img src="./assets/images/products/{{product.img}}" [alt]="product.title">
+							</a>
+							<div class="item-cart__info">
+								<h2 class="item-cart__title fz-14 fw-500">
+									<a href="#">{{product.title}}</a>
+								</h2>
+								<div class="item-cart__price">{{product.price | currency: "USD"}}</div>
+							</div>
+						</div>
+						<div class="item-cart__right">
+							<div class="item-cart__quantity quantity">
+								<button type="button" class="quantity__button quantity__button--plus"
+									(click)="incrementProductFromCart(product)"></button>
+								<div class="quantity__value">{{product.quantity}}</div>
+								<button type="button" class="quantity__button quantity__button--minus"
+									(click)="decrementProductFromCart(product)" [disabled]="product.quantity < 2 ? true : false"></button>
+							</div>
+						</div>
+						<button type="button" class="item-cart__remove" (click)="removeProductFromCart(product)">x</button>
+					</li>
+				</ul>
+				<div class="cart__footer">
+					<div class="cart__rows">
+						<div class="cart__row">
+							<div class="cart__category fw-500">Subtotal</div>
+							<div class="cart__value fw-500">{{ subTotal | currency: "USD"}}</div>
+						</div>
+						<div class="cart__row">
+							<div class="cart__category fw-500">Discount</div>
+							<div class="cart__value fw-500">{{ discount | currency: "USD"}}</div>
+						</div>
+						<div class="cart__row">
+							<div class="cart__category cart__category--total fw-500">Total</div>
+							<div class="cart__value cart__value--total fw-500">{{ total | currency: "USD"}}</div>
+						</div>
+					</div>
+					<button type="button" class="cart__button button button--fill button--bold">
+						Buy Now
+					</button>
+				</div>
+			</ng-container>
+			<ng-template #emptyCart>
+				<p>Empty cart</p>
+			</ng-template>
+		</div>
+	</section>
+</main>

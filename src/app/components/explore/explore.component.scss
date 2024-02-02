@@ -1,0 +1,14 @@
+@import "mixins";
+
+.explore {
+	// .explore__title
+	&__title {
+		margin-bottom: toRem(15);
+	}
+	// .explore__list
+	&__list {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: toRem(20);
+	}
+}

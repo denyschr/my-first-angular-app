@@ -1,0 +1,25 @@
+@import "mixins";
+
+.category {
+	// .category__list
+	&__list {
+		display: flex;
+		flex-wrap: nowrap;
+		gap: toRem(10);
+		margin-bottom: toRem(10);
+		margin-right: toRem(-15);
+		padding-bottom: toRem(10);
+		overflow: auto;
+	}
+	// .category__item
+	&__item {
+		flex: 0 0 auto;
+	}
+	// .category__button
+	&__button {
+		&.is-active {
+			pointer-events: none;
+			background-color: var(--secondary);
+		}
+	}
+}

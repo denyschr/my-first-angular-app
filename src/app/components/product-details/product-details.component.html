@@ -1,0 +1,45 @@
+<bq-header>
+	<a [routerLink]="['/category']" class="header__link header__link--back" aria-label="Back to category"></a>
+	<h1 class="header__title fz-14">Category</h1>
+	<a [routerLink]="['/explore']" class="header__link header__link--forward"
+		aria-label="Move to nearby food outlets"></a>
+</bq-header>
+<main class="page">
+	<section class="page__product-about product-about">
+		<div class="product-about__container">
+			<div class="product-about__top">
+				<div class="product-about__img">
+					<img src="../../../assets/images/products/{{ product.img }}" [alt]="product.title">
+				</div>
+				<button type="button" class="product-about__favorite _icon-favorite">
+				</button>
+			</div>
+			<div class="product-about__body">
+				<div class="product-about__info info-product">
+					<div class="info-product__top">
+						<h1 class="info-product__title fw-500">{{product.title}}</h1>
+						<div class="info-product__price fw-500">{{product.price | currency: 'USD'}}</div>
+					</div>
+					<div class="info-product__available fz-12" [ngStyle]="{color: product.is_in_stock ? 'green' : 'red'}">
+						{{ product.is_in_stock ? 'In Stock' : 'Not available in Stock' }}
+					</div>
+					<div class="info-product__rating rating">
+						<div class="rating__item">
+							<img src="../../../assets/icons/star.svg" alt="Rating 5 out of 5">
+							<img src="../../../assets/icons/star.svg" alt="Rating 5 out of 5">
+							<img src="../../../assets/icons/star.svg" alt="Rating 5 out of 5">
+							<img src="../../../assets/icons/star.svg" alt="Rating 5 out of 5">
+							<img src="../../../assets/icons/star.svg" alt="Rating 5 out of 5">
+						</div>
+					</div>
+				</div>
+				<div class="product-about__descr descr-product">
+					<h2 class="descr-product__title fw-500">Product Details</h2>
+					<div class="descr-product__text fz-10">
+						<p>{{product.description}} <a href="#" class="fw-500">Read More</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</main>

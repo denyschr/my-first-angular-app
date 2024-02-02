@@ -1,0 +1,53 @@
+.quantity {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: toRem(5);
+	padding: toRem(8);
+	border-radius: toRem(5);
+	background-color: var(--white);
+	// .quantity__button
+	&__button {
+		position: relative;
+		width: toRem(14);
+		height: toRem(14);
+		flex: 0 0 toRem(14);
+		transition: color 0.3s ease-in-out;
+		&:disabled {
+			pointer-events: none;
+			opacity: 0.2;
+		}
+		&::before {
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 100%;
+			height: toRem(1.5);
+			background-color: currentColor;
+		}
+		&--plus {
+			&::after {
+				content: "";
+				position: absolute;
+				width: toRem(1.5);
+				height: 100%;
+				top: 0;
+				left: 50%;
+				transform: translateX(-50%);
+				background-color: currentColor;
+			}
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				color: var(--secondary);
+			}
+		}
+	}
+	// .quantity__input
+	&__value {
+		text-align: center;
+		font-size: toRem(12);
+	}
+}

@@ -1,0 +1,36 @@
+@import "mixins";
+
+.header {
+	// .header__container
+	background-color: var(--secondary);
+	&__container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: toRem(15);
+		min-height: toRem(54);
+		padding-top: toRem(5);
+		padding-bottom: toRem(5);
+	}
+	// .header__link
+	&__link {
+		position: relative;
+		width: toRem(24);
+		height: toRem(24);
+		flex-basis: toRem(24);
+		&::before {
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: toRem(24);
+			height: toRem(24);
+			background: url("../../../assets/icons/arrow.svg") center no-repeat;
+		}
+		&--back {
+			&::before {
+				transform: rotate(180deg);
+			}
+		}
+	}
+}
